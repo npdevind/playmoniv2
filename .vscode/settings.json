@@ -1,2 +1,19 @@
 {
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".ts", ".tsx"]
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "prettier.enable": true,
+  "files.autoSave": "onFocusChange",
+  "typescript.tsdk": "node_modules/typescript/lib"
+  // "workbench.colorCustomizations": {
+  //   "activityBar.background": "#05351F",
+  //   "titleBar.activeBackground": "#074A2B",
+  //   "titleBar.activeForeground": "#EFFEF7"
+  // }
 }

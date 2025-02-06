@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const homeStyles = StyleSheet.create({
   container: {
@@ -17,15 +17,18 @@ export const homeStyles = StyleSheet.create({
     width: 420, // Adjust as needed
     height: 700, // Adjust as needed
     borderRadius: 20,
-    top: 15,
+    top: 0,
+    position: 'static',
   },
   logo: {
     position: 'absolute',
     width: 300,
     height: 170,
     top: 0,
-    left: '38%',
-    transform: [{translateX: -75}],
+    left: '50%', // Move to 50% of parent width
+    marginLeft: -150, // Half of the logo's width (300/2 = 150)
+    // Or use transform:
+    // transform: [{ translateX: -150 }],
   },
   playButton: {
     position: 'absolute',
@@ -37,7 +40,7 @@ export const homeStyles = StyleSheet.create({
     borderRadius: 10,
     shadowColor: '#000',
     shadowOpacity: 0.3,
-    shadowOffset: {width: 2, height: 4},
+    shadowOffset: { width: 2, height: 4 },
     shadowRadius: 5,
     elevation: 5, // Android shadow
   },
