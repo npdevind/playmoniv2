@@ -111,6 +111,8 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
     implementation project(':react-native-linear-gradient')
+    implementation 'com.facebook.fresco:animated-gif:2.6.0' // For GIFs
+    implementation 'com.facebook.fresco:animated-webp:2.6.0' // Optional for WebP
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
