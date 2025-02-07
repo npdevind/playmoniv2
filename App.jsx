@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { StatusBar, View, Text } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Icon from './src/components/Icon'
 import HomeScreen from './src/screen/Home'
 import AudioListScreen from './src/screen/AudioListScreen'
 
@@ -16,17 +16,16 @@ const MainAppTabs = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
-          let iconName
-
-          if (route.name === 'Library') {
-            iconName = focused ? 'library' : 'library-outline'
-          } else if (route.name === 'Search') {
-            iconName = focused ? 'search' : 'search-outline'
-          } else if (route.name === 'AudioListScreen') {
-            iconName = focused ? 'musical-notes' : 'musical-notes-outline'
+          const icons = {
+            Home: { name: focused ? 'home' : 'home-outline', type: 'Ionicons' },
+            Search: { name: focused ? 'search' : 'search-outline', type: 'Ionicons' },
+            Library: { name: focused ? 'list-circle' : 'list-circle-outline', type: 'Ionicons' },
+            Setting: { name: focused ? 'settings' : 'settings-outline', type: 'Ionicons' },
           }
 
-          return <Ionicons name={iconName} size={size} color={color} />
+          const { name, type } = icons[route.name] || {}
+
+          return <Icon name={name} size={size} color={color} type={type} />
         },
         tabBarActiveTintColor: '#1DB954',
         tabBarInactiveTintColor: 'gray',
@@ -39,8 +38,10 @@ const MainAppTabs = () => {
         headerShown: false,
       })}
     >
-      <Tab.Screen name="Library" component={AudioListScreen} />
+      <Tab.Screen name="Home" component={AudioListScreen} />
       <Tab.Screen name="Search" component={SearchScreen} />
+      <Tab.Screen name="Library" component={SearchScreen} />
+      <Tab.Screen name="Setting" component={SettingScreen} />
     </Tab.Navigator>
   )
 }
@@ -52,14 +53,20 @@ const SearchScreen = () => (
   </View>
 )
 
+const SettingScreen = () => (
+  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <Text>Setting</Text>
+  </View>
+)
+
 // Root navigation stack
 const App = () => {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor="transparent" translucent={true} />
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Index">
         {/* Landing Page (not part of tabs) */}
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Index" component={HomeScreen} options={{ headerShown: false }} />
 
         {/* Main App with Tabs */}
         <Stack.Screen name="MainApp" component={MainAppTabs} options={{ headerShown: false }} />

@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dsznajder.es7-react-js-snippets",
+    "formulahendry.auto-rename-tag",
+    "aaron-bond.better-comments",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "reactreedev.reactree"
+  ]
+}

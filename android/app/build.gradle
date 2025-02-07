@@ -105,6 +105,7 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+    
 }
 
 dependencies {
@@ -113,6 +114,8 @@ dependencies {
     implementation project(':react-native-linear-gradient')
     implementation 'com.facebook.fresco:animated-gif:2.6.0' // For GIFs
     implementation 'com.facebook.fresco:animated-webp:2.6.0' // Optional for WebP
+
+   
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
