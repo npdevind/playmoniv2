@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const audioScreenStyles = StyleSheet.create({
   container: {
@@ -6,8 +6,10 @@ export const audioScreenStyles = StyleSheet.create({
   },
   content: {
     flex: 1, // Ensures SafeAreaView also takes full screen
+    paddingHorizontal: 10, // Keep horizontal padding if needed
+    paddingTop: 0, // 🔹 Ensures no extra top space
   },
   audioListView: {
     flex: 1,
   },
-});
+})

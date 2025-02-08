@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-const AudioScreenHeader = () => {
+const AudioScreenHeader = ({ headerType, setHeaderType }) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
@@ -13,14 +13,29 @@ const AudioScreenHeader = () => {
         </TouchableOpacity>
 
         <View style={styles.tabsContainer}>
-          <TouchableOpacity style={styles.tab}>
-            <Text style={styles.tabText}>My Music</Text>
+          <TouchableOpacity
+            style={headerType === 'myMusic' ? styles.activeTab : styles.tab}
+            onPress={() => setHeaderType('myMusic')}
+          >
+            <Text style={headerType === 'myMusic' ? styles.activeTabText : styles.tabText}>
+              My Music
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.tab}>
-            <Text style={styles.tabText}>Online Music</Text>
+          <TouchableOpacity
+            style={headerType === 'onlineMusic' ? styles.activeTab : styles.tab}
+            onPress={() => setHeaderType('onlineMusic')}
+          >
+            <Text style={headerType === 'onlineMusic' ? styles.activeTabText : styles.tabText}>
+              Online Music
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.tab}>
-            <Text style={styles.tabText}>Podcast</Text>
+          <TouchableOpacity
+            style={headerType === 'podcast' ? styles.activeTab : styles.tab}
+            onPress={() => setHeaderType('podcast')}
+          >
+            <Text style={headerType === 'podcast' ? styles.activeTabText : styles.tabText}>
+              Podcast
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -49,15 +64,33 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
     justifyContent: 'flex-end',
-    // gap: 25,
+    gap: 5,
     marginRight: 20,
   },
-  tab: {
+  activeTab: {
+    borderWidth: 1,
+    borderColor: '#00ff94',
+    borderRadius: 25,
+    backgroundColor: '#00ff00',
+    color: 'black',
     paddingVertical: 8,
     paddingHorizontal: 12,
   },
+  tab: {
+    borderWidth: 1,
+    borderColor: '#00ff00',
+    borderRadius: 25,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+  },
+
   tabText: {
     color: 'white',
+    fontSize: 12,
+    fontWeight: '500',
+  },
+  activeTabText: {
+    color: 'black',
     fontSize: 12,
     fontWeight: '500',
   },

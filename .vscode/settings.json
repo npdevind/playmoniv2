@@ -10,7 +10,8 @@
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "prettier.enable": true,
   "files.autoSave": "onFocusChange",
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": ["ellipsize"]
   // "workbench.colorCustomizations": {
   //   "activityBar.background": "#05351F",
   //   "titleBar.activeBackground": "#074A2B",

@@ -114,7 +114,7 @@ dependencies {
     implementation project(':react-native-linear-gradient')
     implementation 'com.facebook.fresco:animated-gif:2.6.0' // For GIFs
     implementation 'com.facebook.fresco:animated-webp:2.6.0' // Optional for WebP
-
+    implementation project(':react-native-track-player')
    
 
     if (hermesEnabled.toBoolean()) {
@@ -123,3 +123,6 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+
+
