@@ -64,8 +64,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
     justifyContent: 'flex-end',
-    gap: 5,
-    marginRight: 20,
+    gap: 2,
+    // marginRight: 20,
   },
   activeTab: {
     borderWidth: 1,
@@ -86,12 +86,12 @@ const styles = StyleSheet.create({
 
   tabText: {
     color: 'white',
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: '500',
   },
   activeTabText: {
     color: 'black',
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: '500',
   },
   border: {

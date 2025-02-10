@@ -11,7 +11,9 @@
   "prettier.enable": true,
   "files.autoSave": "onFocusChange",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["ellipsize"]
+  "cSpell.words": [
+    "ellipsize"
+  ]
   // "workbench.colorCustomizations": {
   //   "activityBar.background": "#05351F",
   //   "titleBar.activeBackground": "#074A2B",
