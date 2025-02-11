@@ -20,7 +20,7 @@ export const audioFlatListStyles = StyleSheet.create({
     tintColor: '#fff',
   },
   audioTitle: {
-    fontSize: 16,
+    fontSize: 14.5,
     color: 'white',
     flex: 1,
   },

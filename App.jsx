@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -6,6 +6,9 @@ import { StatusBar, View, Text } from 'react-native'
 import Icon from './src/components/Icon'
 import HomeScreen from './src/screen/Home'
 import AudioListScreen from './src/screen/AudioListScreen'
+import FullPlayer from './src/screen/FullPlayer'
+import TrackPlayer from 'react-native-track-player'
+import MiniPlayer from './src/components/MiniPlayer'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -61,6 +64,26 @@ const SettingScreen = () => (
 
 // Root navigation stack
 const App = () => {
+  useEffect(() => {
+    const setupPlayer = async () => {
+      const isReady = await isTrackPlayerReady()
+      if (!isReady) {
+        // Only setup if TrackPlayer is not already initialized
+        await TrackPlayer.setupPlayer()
+        await TrackPlayer.updateOptions({
+          stopWithApp: true,
+          capabilities: [
+            TrackPlayer.CAPABILITY_PLAY,
+            TrackPlayer.CAPABILITY_PAUSE,
+            TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+            TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+          ],
+        })
+      }
+    }
+    setupPlayer()
+  }, [])
+
   return (
     <NavigationContainer>
       <StatusBar backgroundColor="transparent" translucent={true} />
@@ -77,7 +100,20 @@ const App = () => {
           component={AudioListScreen}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="FullPlayer"
+          component={FullPlayer}
+          options={{
+            headerShown: false,
+            cardStyleInterpolator: ({ current }) => ({
+              cardStyle: {
+                opacity: current.progress,
+              },
+            }),
+          }}
+        />
       </Stack.Navigator>
+      <MiniPlayer />
     </NavigationContainer>
   )
 }

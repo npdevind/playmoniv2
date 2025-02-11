@@ -7,9 +7,12 @@ import {
   PermissionsAndroid,
   Platform,
   Image,
+  TouchableOpacity,
 } from 'react-native'
 import RNFS from 'react-native-fs'
 import { audioFlatListStyles } from '../styles/audioFlatListStyles'
+
+import { playAudio } from '../utils/player'
 
 const AudioFlatList = () => {
   const [audioFiles, setAudioFiles] = useState([])
@@ -127,8 +130,11 @@ const AudioFlatList = () => {
         <FlatList
           data={audioFiles}
           keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <View style={audioFlatListStyles.audioItem}>
+          renderItem={({ item, index }) => (
+            <TouchableOpacity
+              style={audioFlatListStyles.audioItem}
+              onPress={() => playAudio([item], index)}
+            >
               <Image
                 source={require('../assets/image_contents/audio_icon.png')}
                 style={audioFlatListStyles.audioIcon}
@@ -136,7 +142,7 @@ const AudioFlatList = () => {
               <Text style={audioFlatListStyles.audioTitle} numberOfLines={1} ellipsizeMode="tail">
                 {item.title}
               </Text>
-            </View>
+            </TouchableOpacity>
           )}
           contentContainerStyle={{ paddingTop: 0 }} // 🔹 Removes unwanted top padding
           // scrollEnabled={false} //to disable scroll

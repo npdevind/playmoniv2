@@ -95,3 +95,20 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+🔹 How react-native-track-player Works
+You add songs (tracks) to the player queue
+→ TrackPlayer.add(tracks)
+
+You tell the player to play a specific track
+→ TrackPlayer.skip(index)
+→ TrackPlayer.play()
+
+TrackPlayer updates its state when a new track starts playing
+→ usePlaybackState() watches for play/pause changes.
+→ useTrackPlayerEvents([Event.PlaybackActiveTrackChanged]) detects when a new song starts.
+
+🎯 How MiniPlayer Knows Which Song Is Playing
+Click a song → Call playAudio(tracks, index).
+MiniPlayer listens for track changes using useTrackPlayerEvents([Event.PlaybackActiveTrackChanged]).
+When a track starts playing, MiniPlayer updates its UI.

@@ -58,13 +58,13 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderRadius: 25,
-    marginLeft: 20,
+    marginLeft: 10,
   },
   tabsContainer: {
     flexDirection: 'row',
     flex: 1,
     justifyContent: 'flex-end',
-    gap: 2,
+    gap: 3,
     // marginRight: 20,
   },
   activeTab: {
